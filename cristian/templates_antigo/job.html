@@ -1,0 +1,38 @@
+﻿{% extends 'base.html' %}
+
+{% block title %} {{ lista_job.nome }} {% endblock %}
+
+{% block content %}
+    
+    <ol class="slides">
+    {% for itemfotos in lista_fotos %}
+      <li>
+        <img src="{{ itemfotos.foto.url }}" alt="">
+        <!--
+        <div title="About this project" class="media-desc desc">
+          <h3>We are Helsinki</h3>
+          <h2>A mediocre idea that generates enthusiasm will go further than a great idea that inspires no one.</h2>
+        </div>
+        -->
+      </li>
+      {% endfor %}
+    </ol>
+    
+    
+    <div id="main" class="wrap group post">
+      
+      <div class="headings" style="margin-left:0%;">
+        <h1>{{ lista_job.nome }}</h1>
+      </div>
+      
+      
+      <div class="one-half content">
+        <div class="columned">
+          <p>
+          	{{ lista_job.texto }}
+          </p>
+        </div>
+      </div>
+      
+    </div>
+{% endblock %}

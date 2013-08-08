@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ lista_job.nome }} {% endblock %}
+
+{% block content %}
+  
+  <div class="top-space"></div>
+  <div class="primary portfolio">
+    <div class="container box">
+      <div class="light-wrapper">
+        <div class="navigation">
+        <a href="#" class="btn pull-left back">Voltar</a>
+        <!-- /.btn --> 
+        <a href="#" class="btn pull-right rm0 nav-next-item">
+        	<i class="icon-right-open-1"></i></a>
+        <!-- /.btn --> 
+        <a href="#" class="btn pull-right nav-prev-item">
+        	<i class="icon-left-open-1"></i>
+        </a>
+        <!-- /.btn --> 
+        </div>
+        <!-- /.navigation -->
+        
+        <div class="portfolio-bannercontainer revolution">
+          <div class="portfolio-banner">
+            {% if lista_fotos %}
+            <ul>
+            	{% for itemfotos in lista_fotos %}
+            		{% if itemfotos.foto %}
+              			<li data-transition="fade">
+              				<img src="{{ itemfotos.foto.url }}" alt="" />
+              			</li>
+              		{% endif %}
+              	{% endfor %}
+            </ul>
+            {% endif %}
+            <div class="tp-bannertimer tp-bottom"></div>
+          </div>
+          <!-- /.portfolio-banner --> 
+        </div>
+        <!-- /.portfolio-bannercontainer -->
+        <h2>{{ lista_job.nome }}</h2>
+        <div class="row">
+          <div class="span8">
+            <p>{{ lista_job.texto }}</p>
+          </div>
+          <!-- /.span8 -->
+          <div class="span4 lp20">
+            <ul class="nobullets item-details">
+              <li><span>Data:</span>{{ lista_job.data|date:"Y" }}</li>
+              <li><span>Categorias:</span>{{ lista_job.idcategoria.all|join:"," }}</li>
+              <li><span>Cliente:</span>{{ lista_job.cliente }}</li>
+              <li><span>URL:</span><a target="_blank" href="{{ lista_job.urlsite }}">{{ lista_job.urlsite }}</a></li>
+            </ul>
+            <div class="divide10"></div>
+            <!--
+            <ul class="social">
+              <li><a href="#"><i class="icon-s-twitter"></i></a></li>
+              <li><a href="#"><i class="icon-s-facebook"></i></a></li>
+              <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
+            </ul>
+            -->
+          </div>
+          <!-- /.span4 --> 
+        </div>
+        <!-- /.row --> 
+      </div>
+      <!--/.light-wrapper --> 
+    </div>
+    <!--/.container --> 
+  </div>
+  <!--/.primary-->
+  <div class="push"></div>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% block cabecalho %}
+<meta charset="utf-8">
+<title>Cristian Machado Ávila - {% block title %} {% endblock %}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link href="{{ MEDIA_URL }}style/css/bootstrap.css" rel="stylesheet">
+<link href="{{ MEDIA_URL }}style/css/settings.css" rel="stylesheet">
+<link href="{{ MEDIA_URL }}style/js/google-code-prettify/prettify.css" rel="stylesheet">
+<link href="{{ MEDIA_URL }}style.css" rel="stylesheet">
+<link href="{{ MEDIA_URL }}style/css/color/gray.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+<link href="{{ MEDIA_URL }}style/type/fontello.css" rel="stylesheet">
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/style/css/ie8.css" media="all" />
+<![endif]-->
+<!--[if lt IE 9]>
+<script src="{{ MEDIA_URL }}/style/js/html5shiv.js"></script>
+<![endif]-->
+{% endblock %}
+</head>
+<body>
+	
+	<div class="body-wrapper">
+	
+	{% include 'header.html' %}
+	
+	{% block content %}{{ content }}{% endblock %}
+	
+	</div>
+	
+	{% include 'footer.html' %}
+	
+	<script src="{{ MEDIA_URL }}style/js/jquery.js"></script> 
+	<script src="{{ MEDIA_URL }}style/js/bootstrap.min.js"></script> 
+	<script src="{{ MEDIA_URL }}style/js/ddsmoothmenu.js"></script> 
+	<script src="{{ MEDIA_URL }}style/js/jquery.themepunch.plugins.min.js"></script> 
+	<script src="{{ MEDIA_URL }}style/js/jquery.themepunch.revolution.min.js"></script> 
+	<script src="{{ MEDIA_URL }}style/js/selectnav.js"></script> 
+	<script src="{{ MEDIA_URL }}style/js/jquery.fitvids.js"></script> 
+	<script src="{{ MEDIA_URL }}style/js/jquery.slickforms.js"></script> 
+	<script src="{{ MEDIA_URL }}style/js/jquery.isotope.min.js"></script> 
+	<script src="{{ MEDIA_URL }}style/js/view.min9df2.js?auto"></script> 
+	<script src="{{ MEDIA_URL }}style/js/google-code-prettify/prettify.js"></script> 
+	<script src="{{ MEDIA_URL }}style/js/scripts.js"></script>
+	<!-- DEMO ONLY -->
+	<link rel="alternate stylesheet" type="text/css" href="{{ MEDIA_URL }}switcher/gray.css" title="gray-color" media="screen" />
+	<link rel="alternate stylesheet" type="text/css" href="{{ MEDIA_URL }}switcher/green.css" title="green-color" media="screen" />
+	<link rel="alternate stylesheet" type="text/css" href="{{ MEDIA_URL }}switcher/orange.css" title="orange-color" media="screen" />
+	<link rel="alternate stylesheet" type="text/css" href="{{ MEDIA_URL }}switcher/pink.css" title="pink-color" media="screen" />
+	<link rel="alternate stylesheet" type="text/css" href="{{ MEDIA_URL }}switcher/yellow.css" title="yellow-color" media="screen" />
+	<link rel="alternate stylesheet" type="text/css" href="{{ MEDIA_URL }}switcher/blue.css" title="blue-color" media="screen" />
+	<script type="text/javascript" src="{{ MEDIA_URL }}switcher/switchstylesheet.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){ 
+		$(".changecolor").switchstylesheet( { seperator:"color"} );
+	});
+	</script>
+</body>
+</html>

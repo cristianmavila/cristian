@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	{% block cabecalho %}
+    <title>Cristian Machado Ávila - {% block title %} {% endblock %}</title>
+    <meta charset="utf8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <!-- css-->
+    <link rel="stylesheet" href="{{ MEDIA_URL }}style.css">
+    <!-- js-->
+    <script src="{{ MEDIA_URL }}/jquery.js"></script>
+    <script src="{{ MEDIA_URL }}/script.js"></script>
+    {% endblock %}
+  </head>
+	<body>
+	<div id="head">
+	<div class="wrap group" style="background:none;">
+      <div class="one-fourth" style="margin-bottom:0px;">
+        <div id="logo">
+          <h1>
+          	<a href="/inicial/">
+          		<img style="margin-top:5px;" src="{{ MEDIA_URL }}img/logo.png" title="Cristian Machado Ávila" alt="Cristian Machado Ávila">
+          	</a>
+          </h1>
+        </div>
+      </div>
+      
+      <ol class="menu list">
+      	<li><a href="/sobre/">Sobre</a></li>
+      	<li><a href="/portfolio/">Portfolio</a></li>
+      	<li><a href="/contato/">Contato</a></li>
+      </ol>
+      
+      <div class="clear fat"></div>
+      </div>
+    </div>
+    <!-- /head-->
+    
+	{% block content %}{{ content }}{% endblock %}
+	
+	{% block footer %}
+	<div id="foot" class="wrap group">
+      <!-- /one-fourth column-->
+      <div class="one-fourth">
+        <h4>Redes Sociais</h4>
+        <p class="social">
+          <!-- social link: --><a target="blank" href="http://twitter.com/cristianm_avila" title="Visit us on twitter">t</a>
+          <!-- social link: --><a target="blank" href="https://www.facebook.com/cristianmachadoavila">f</a>
+          <!-- social link: --><a target="blank" href="http://br.linkedin.com/in/cristianmachadoavila">i</a>
+          <!-- social link: --><a target="blank" href="https://plus.google.com/108675744371237264140">g</a>
+        </p>
+        <!-- /more social icon codes you will find in documentation-->
+      </div>
+      
+      <!-- /one-fourth column-->
+      <div class="one-fourth last" style="text-align:right; float:right;">
+        <p>&copy; 2012 Cristian Machado Ávila</p>
+      </div>
+      <!-- /one-fourth last column-->
+    </div>
+    <!-- /foot-->
+    {% endblock %}
+	</body>
+</html>
+

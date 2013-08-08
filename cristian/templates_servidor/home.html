@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %} Inicial {% endblock %}
+
+{% block content %}
+
+<div class="top-space"></div>
+  <div class="parallax">
+    <div class="container box">
+      <h1>Desenvolvedor Freelance</h1>
+      <p>Django, Python, CSS3, HTML5, PHP, MySQL</p>
+    </div>
+    <!--/.container --> 
+  </div>
+  <!--/.parallax -->
+  <div class="primary portfolio">
+    <div class="container box portfolio-wrapper">
+      <div class="light-wrapper">
+        <h1 class="page-title pull-left">Últimos trabalhos</h1>
+        <div class="portfolio-filter btn-group pull-right">
+          <button class="btn inverse dropdown-toggle bm0" data-toggle="dropdown">Filtrar categorias</button>
+          <!-- /.btn -->
+          <ul class="dropdown-menu filter">
+            <li><a class="active" href="#" data-filter="*">Todos</a></li>
+            {% for itemmenu in lista_categorias %}
+            <li><a href="#" data-filter=".{{ itemmenu.nomecategoria }}">{{ itemmenu.nomecategoria }}</a></li>
+            {% endfor %}
+          </ul>
+          <!-- /.filter .dropdown-menu --> 
+        </div>
+        <!-- /.portfolio-filter -->
+        <div class="clearfix"></div>
+        <div class="divide15"></div>
+     
+     	<ul class="items">
+  		{% for item in lista_portfolio %}   
+        	<li class="item {{ item.idcategoria.all|join:" " }}">
+        		<a href="#" data-contenturl="/web/job/{{ item.slug }}" data-callback="callPortfolioScripts();" data-contentcontainer=".primary .container">
+        			<div class="overlay">
+        				<div class="info">
+        					<h3>{{ item.nome }}</h3>
+        					<span>{{ item.idcategoria.all|join:"," }}</span>
+        				</div>
+        			</div>
+        			{% if item.capa %}
+        			<img src="{{ item.capa.url }}">
+        			{% endif %}
+        		</a>
+        	</li>
+        {% endfor %}	
+        </ul>
+        <!--/.items--> 
+      </div>
+      <!--/.light-wrapper--> 
+    </div>
+    <!--/.container--> 
+  </div>
+  <!--/.primary-->
+  <div class="push"></div>
+  
+{% endblock %}

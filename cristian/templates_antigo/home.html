@@ -1,0 +1,42 @@
+﻿{% extends 'base.html' %}
+
+{% block title %} Inicial {% endblock %}
+
+{% block content %}
+
+<ol class="slides">
+	<li>
+		<img src="{{ MEDIA_URL }}img/festadauvacapa.jpg" alt="">
+    </li>
+    <li>
+		<img src="{{ MEDIA_URL }}img/poloinfantilcapa.jpg" alt="">
+    </li>
+	<li>
+		<img src="{{ MEDIA_URL }}img/aeexcapa.jpg" alt="">
+    </li>
+</ol>
+    
+<div id="main" class="wrap group">
+  <!-- /sidewrap-->
+  <div class="clear"></div>
+  <!-- /1st row-->
+  <div class="sidewrap" style="margin-left:0; width:100%;">
+    <h3>Últimos trabalhos <span>
+    <a href="/portfolio/">mais trabalhos &#10142;</a></span></h3>
+    <div class="thumbs group pad">
+    {% for itemult in lista_ultimos %}
+      <a href="/job/{{ itemult.slug }}" class="item">
+      	{% if itemult.capa %}
+      	<img src="{{ itemult.capa.url }}">
+      	{% endif %}
+      	<h2>{{ itemult.nome }}</h2>
+      </a>
+     {% endfor %}
+    </div>
+  </div>
+  <!-- /sidewrap (2nd row)-->
+  <div class="clear fat"></div>
+</div>
+
+{% endblock %}
+

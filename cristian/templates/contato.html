@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %} Contato {% endblock %}
+
+{% block content %}
+  <div class="top-space"></div>
+  <div class="primary">
+    <div class="light-wrapper box">
+      <div class="container">
+        <div class="row">
+          <div class="span8">
+            <h2>Contato</h2>
+            <p>Prencha os campos abaixo para entrar em contato, se você tem um ideia de sistema ou aplicativo mobile, envie a sua idéia talvez possamos formar uma parceria, caso o projeto tenha um bom potencial.</p>
+            <div class="divide20"></div>
+            <div class="form-container">
+              <div class="response alert alert-success"></div>
+              <form class="forms" action="/contato/enviacontato" method="post">
+              	{% csrf_token %}
+                <fieldset>
+                  <ol>
+                    <li class="form-row text-input-row name-field">
+                      <input type="text" name="name" class="text-input defaultText required" title="Nome (Obrigatório)"/>
+                    </li>
+                    <li class="form-row text-input-row email-field">
+                      <input type="text" name="mail" class="text-input defaultText required email" title="Email (Obrigatório)"/>
+                    </li>
+                    <li class="form-row text-input-row subject-field">
+                      <input type="text" name="subject" class="text-input defaultText" title="Assunto"/>
+                    </li>
+                    <li class="form-row text-area-row">
+                      <textarea name="msg" class="text-area required"></textarea>
+                    </li>
+                    <li class="form-row hidden-row">
+                      <input type="hidden" name="hidden" value="" />
+                    </li>
+                    <li class="button-row">
+                      <input type="submit" value="Enviar" name="submit" class="btn bm0" />
+                    </li>
+                  </ol>
+                  <input type="hidden" name="v_error" id="v-error" value="Required" />
+                  <input type="hidden" name="v_email" id="v-email" value="Enter a valid email" />
+                </fieldset>
+              </form>
+            </div>
+            <!-- /.form-container --> 
+          </div>
+          <!-- /.span8 -->
+          <aside class="span4 sidebar lp20">
+            <div class="sidebox widget">
+              <h3>Dados de contato</h3>
+              <p></p>
+              <address>
+              <strong>Cristian</strong><br>
+              <abbr title="Phone">Telefone:</abbr> (51) 9818.8879 <br>
+              <abbr title="Email">E-mail:</abbr> <a href="mailto:cristianmachadoavila@gmail.com">cristianmachadoavila@gmail.com</a>
+              </address>
+            </div>
+            <!-- /.widget --> 
+          </aside>
+          <!-- /.span4 --> 
+        </div>
+        <!-- /.row --> 
+        
+      </div>
+      <!-- /.container --> 
+    </div>
+    <!-- /.light-wrapper --> 
+  </div>
+  <!--/.primary-->
+  <div class="push"></div>
+{% endblock %}

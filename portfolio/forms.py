@@ -12,4 +12,3 @@ class FormPortfolio(ModelForm):
             'texto': Textarea(attrs={'cols': 80, 'rows': 20}),
         }
     
-    

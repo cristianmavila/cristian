@@ -1,0 +1,44 @@
+﻿{% extends 'base.html' %}
+
+{% block title %} Contato {% endblock %}
+
+{% block content %}
+<div id="main" class="wrap group post">
+  
+  <div class="clear"></div>
+  <div class="one-fourth mobile-centred">
+    <h3>Telefone / E-mail</h3>
+    <ol class="list">
+      <li>T: <a href="tel:+number">+55 (51) 9818.8879</a></li>
+      <li>E: <a href="mailto:cristianmachadoavila@gmail.com">cristianmachadoavila@gmail.com</a></li>
+    </ol>
+  </div>
+  
+
+  <div class="one-half content">
+  	<h3>Contato<span></span></h3>
+    <div class="columned">
+      <p>Preencha os dados abaixo e clique em enviar, breve entrarei em contato obrigado.</p>
+    </div>
+    <form action="/contato/enviacontato" method="post" id="contact">
+    	{% csrf_token %}
+      <fieldset>
+        <p class="name">
+          <input type="text" name="name" value="Nome">
+        </p>
+        <p class="mail">
+          <input type="text" name="mail" value="E-mail">
+        </p>
+        <p class="msg">
+          <label class="textarea">
+            <textarea name="msg" rows="5" cols="40">Sua mensagem</textarea>
+          </label>
+        </p>
+        <p class="send">
+          <input type="submit" name="send" value="Enviar">
+        </p>
+      </fieldset>
+    </form>
+  </div>
+</div>
+{% endblock %}

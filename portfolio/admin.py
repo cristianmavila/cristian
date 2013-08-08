@@ -1,22 +1,27 @@
 # -*- coding: utf-8 -*-
-from portfolio.models import ItemPortfolio
+from portfolio.models import ItemPortfolio,ItemPhotos
 from django.contrib import admin
 from django import forms
-from redactor.widgets import RedactorEditor
+#from easy_thumbnails.fields import ThumbnailerImageField
 
-class ItemPortfolioModelForm(forms.ModelForm):
-    #texto = forms.CharField(widget=forms.Textarea)
-    class Meta:
-        model = ItemPortfolio
-        widgets = {
-           'short_text': RedactorEditor(),
-        }
-
-class PortfolioAdmin(admin.ModelAdmin):
-    form = ItemPortfolioModelForm
+#class PortfolioAdmin(admin.ModelAdmin):
+    #form = ItemPortfolioModelForm
     #fieldsets = [
      #   ('Portfolio', {'fields': ['nome','texto']})
     #]
     #search_fields = ['nome']
+    
+    
+class ItensInline(admin.StackedInline):
+    model = ItemPhotos
+    extra = 1
+
+class PortfolioAdmin(admin.ModelAdmin):
+    #form = ItemPortfolioModelForm
+    fieldsets = [
+        ('Portfolio', {'fields': ['nome','data','capa','urlsite','cliente','idcategoria','texto']}),
+    ]
+    inlines = [ItensInline]
+    search_fields = ['nome']
     
 admin.site.register(ItemPortfolio, PortfolioAdmin)

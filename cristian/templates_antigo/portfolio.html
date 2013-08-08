@@ -1,0 +1,40 @@
+﻿{% extends 'base.html' %}
+
+{% block title %} Portfolio {% endblock %}
+
+{% block content %}
+    <div id="main" class="wrap group">
+      <div class="one-fourth filter">
+        <ol class="list listmenucat">
+          <!-- empty data tag used to clear filter -->
+          <li data-tag="" class="active"><a>Todos trabalhos</a></li>
+        </ol>
+        <h3>Filtrar por tipo:</h3>
+        <ol class="list listmenucat">
+        	{% for itemmenu in lista_categorias %}
+        	<li data-tag="{{ itemmenu.nomecategoria }}"><a>{{ itemmenu.nomecategoria }}</a></li>
+        	{% endfor %}
+        </ol>
+      </div>
+      <!-- /filter-->
+      <div class="three-fourth last">
+      	
+        <!-- remove 'data-fx' attribute to disable portfolio item animations: -->
+        <div data-fx class="thumbs group">
+          <!-- data-tags used by filter above -->
+          <!-- default thumbnail format is 4:3 -->
+          {% for item in lista_portfolio %}
+          <a href="/job/{{ item.slug }}" data-tags="{{ item.idcategoria.nomecategoria}}" class="item">
+          	{% if item.capa %}
+          	<img src="{{ item.capa.url }}">
+          	{% endif %}
+          	<h2>{{ item.nome }}</h2>
+          </a>
+          {% endfor %}
+         
+        </div>
+        <!-- /thumbs-->
+      </div>
+      <!-- /last three-fourth col-->
+    </div>
+{% endblock %}
